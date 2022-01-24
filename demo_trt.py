@@ -194,10 +194,12 @@ if __name__ == '__main__':
     image_path = sys.argv[2]
     
     if len(sys.argv) < 4:
-        image_size = (416, 416)
+        image_size = (640, 480)
     elif len(sys.argv) < 5:
         image_size = (int(sys.argv[3]), int(sys.argv[3]))
     else:
         image_size = (int(sys.argv[3]), int(sys.argv[4]))
-    
+
+    print(f"pycuda.VERSION: {pycuda.VERSION}")
+    print(f"trt.__version__: {trt.__version__}")
     main(engine_path, image_path, image_size)
